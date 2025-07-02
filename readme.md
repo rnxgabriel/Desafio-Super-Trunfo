@@ -1,5 +1,5 @@
-Super Trunfo de Países
-Este é um programa em C que implementa um jogo de Super Trunfo com cartas representando cidades. O programa permite cadastrar duas cartas, calcular atributos derivados (densidade populacional e PIB per capita) e comparar as cartas com base em um atributo escolhido pelo usuário através de um menu interativo.
+Super Trunfo de Países - Desafio Final
+Este é um programa em C que implementa a versão final do jogo Super Trunfo de Países. O programa permite cadastrar duas cartas, calcular atributos derivados (densidade populacional e PIB per capita), e comparar as cartas com base em dois atributos escolhidos pelo usuário através de menus interativos. A soma dos atributos determina o vencedor da rodada.
 Como Compilar e Executar
 Pré-requisitos
 
@@ -26,9 +26,11 @@ População: Um número inteiro representando a população.
 PIB: Um número decimal representando o PIB em bilhões de reais.
 Número de Pontos Turísticos: Um número inteiro.
 
-Exibição das Cartas: Após o cadastro, o programa exibe os dados das duas cartas, incluindo os valores calculados para densidade populacional e PIB per capita.
+Exibição das Cartas: Após o cadastro, o programa exibe os dados das duas cartas, incluindo densidade populacional e PIB per capita calculados.
 
-Menu de Comparação: Um menu interativo é apresentado com as seguintes opções:
+Escolha dos Atributos:
+
+Primeiro Atributo: Escolha um atributo para comparação através de um menu interativo com as opções:
 
 População
 
@@ -42,14 +44,14 @@ Densidade Populacional
 
 PIB per Capita
 
-Digite o número correspondente ao atributo desejado para comparação.
+Segundo Atributo: Escolha um segundo atributo, com um menu dinâmico que exclui o primeiro atributo selecionado.
 
-Resultado da Comparação: O programa exibe:
+Comparação e Resultado:
 
-O atributo escolhido.
-Os valores do atributo para cada carta.
-A carta vencedora (ou "Empate!" se os valores forem iguais).
-Para todos os atributos, exceto Densidade Populacional, a carta com o maior valor vence. Para Densidade Populacional, a carta com o menor valor vence.
+O programa exibe os valores de cada atributo para as duas cartas.
+Para cada atributo, exceto Densidade Populacional, a carta com o maior valor vence. Para Densidade Populacional, a carta com o menor valor vence.
+A soma dos dois atributos é calculada para cada carta.
+A carta com a maior soma vence a rodada. Se as somas forem iguais, o resultado é "Empate!".
 
 Exemplo de Uso
 Entrada:
@@ -71,7 +73,7 @@ População: 6000000
 PIB (em bilhões de reais): 300.50
 Número de Pontos Turísticos: 30
 
-Escolha o atributo para comparação:
+Escolha o primeiro atributo para comparação:
 
 1. População
 2. Área
@@ -80,6 +82,15 @@ Escolha o atributo para comparação:
 5. Densidade Populacional
 6. PIB per Capita
    Digite a opção (1-6): 3
+
+Escolha o segundo atributo para comparação (diferente do primeiro):
+
+1. População
+2. Área
+3. Número de Pontos Turísticos
+4. Densidade Populacional
+5. PIB per Capita
+   Digite a opção: 4
 
 Saída:
 Carta 1:
@@ -104,16 +115,30 @@ Número de Pontos Turísticos: 30
 Densidade Populacional: 4998.96 hab/km²
 PIB per Capita: 50083.33 reais
 
-Comparação de cartas (Atributo: PIB):
+Comparação de cartas:
 
-Carta 1 - São Paulo (A): 699.28 bilhões de reais
-Carta 2 - Rio de Janeiro (B): 300.50 bilhões de reais
+Atributo: PIB
+Carta 1 - São Paulo (A): 699.28
+Carta 2 - Rio de Janeiro (B): 300.50
+Resultado: Carta 1 venceu!
 
-Resultado: Carta 1 (São Paulo) venceu!
+Atributo: Número de Pontos Turísticos
+Carta 1 - São Paulo (A): 50.00
+Carta 2 - Rio de Janeiro (B): 30.00
+Resultado: Carta 1 venceu!
+
+Soma dos atributos:
+Carta 1 - São Paulo (A): 749.28
+Carta 2 - Rio de Janeiro (B): 330.50
+
+Resultado final: Carta 1 venceu!
 
 Notas
 
-O programa utiliza a estrutura switch para gerenciar o menu interativo e if-else para realizar as comparações.
-O código trata entradas inválidas no menu através de um caso default no switch.
-Os cálculos de densidade populacional e PIB per capita são realizados automaticamente após a entrada dos dados.
-O código é comentado para facilitar a manutenção e compreensão.
+O programa utiliza switch para gerenciar os menus interativos e if-else com operadores ternários para realizar as comparações.
+Menus dinâmicos são implementados excluindo o primeiro atributo selecionado do menu do segundo atributo.
+Entradas inválidas (opções fora do intervalo 1-6 ou atributos iguais) são tratadas com mensagens de erro e encerramento do programa.
+O código é bem comentado e estruturado para facilitar manutenção e compreensão.
+
+Sugestão de Commit
+"Implementa comparação de dois atributos com menus dinâmicos e soma para determinar vencedor"
